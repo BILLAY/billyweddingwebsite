@@ -17,28 +17,54 @@ section {
   align-items: center;
 }
 
-#invitation, #details {
+#cover, #envelope, #invitation, #details {
   display: none;
+}
+
+#cover img, #envelope .closed, #envelope .open, #invitation img {
+  max-width: 100%;
+  height: auto;
+}
+
+.down-arrow {
+  font-size: 2rem;
+  animation: blink 1s infinite;
+  cursor: pointer;
 }
 
 .hidden {
   display: none;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.envelope {
+  position: relative;
 }
 
-@keyframes slideIn {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
+.envelope .open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
 }
 
-.show {
-  display: block;
-  animation: fadeIn 1s ease-in-out;
+.envelope .closed:hover + .open {
+  opacity: 1;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.detail-item {
+  text-align: center;
+  cursor: pointer;
+}
+
+.detail-item img {
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 #popup {
@@ -83,4 +109,25 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.show {
+  display: block;
+  animation: fadeIn 1s ease-in-out;
 }
