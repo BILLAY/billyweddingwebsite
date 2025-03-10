@@ -1,133 +1,62 @@
-/* Basic styling */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Wedding</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="scripts.js"></script>
+</head>
+<body>
+  <section id="cover">
+    <img src="cover%20image.jpg" alt="Cover Image">
+    <div class="down-arrow">⬇</div>
+  </section>
 
-section {
-  padding: 50px;
-  text-align: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  <section id="envelope">
+    <div class="envelope">
+      <img src="envelope-closed.jpg" alt="Closed Envelope" class="closed">
+      <img src="envelope-open.jpg" alt="Open Envelope" class="open hidden">
+    </div>
+    <div class="down-arrow">⬇</div>
+  </section>
 
-#cover, #envelope, #invitation, #details {
-  display: none;
-}
+  <section id="invitation">
+    <img src="invitation-image.jpg" alt="Invitation Image">
+    <div class="down-arrow">⬇</div>
+  </section>
 
-#cover img, #envelope .closed, #envelope .open, #invitation img {
-  max-width: 100%;
-  height: auto;
-}
+  <section id="details">
+    <button id="rsvp-btn">RSVP</button>
+    <div class="details-grid">
+      <div class="detail-item" data-detail="story">
+        <img src="our-story.jpg" alt="Our Story">
+        <p>Our Story</p>
+      </div>
+      <div class="detail-item" data-detail="area">
+        <img src="the-area.jpg" alt="The Area">
+        <p>The Area</p>
+      </div>
+      <div class="detail-item" data-detail="dress-code">
+        <img src="dress-code.jpg" alt="Dress Code">
+        <p>Dress Code</p>
+      </div>
+      <div class="detail-item" data-detail="stay">
+        <img src="where-to-stay.jpg" alt="Where to Stay">
+        <p>Where to Stay</p>
+      </div>
+      <div class="detail-item" data-detail="getting-here">
+        <img src="getting-here.jpg" alt="Getting Here">
+        <p>Getting Here</p>
+      </div>
+    </div>
+  </section>
 
-.down-arrow {
-  font-size: 2rem;
-  animation: blink 1s infinite;
-  cursor: pointer;
-}
-
-.hidden {
-  display: none;
-}
-
-.envelope {
-  position: relative;
-}
-
-.envelope .open {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.5s ease;
-}
-
-.envelope .closed:hover + .open {
-  opacity: 1;
-}
-
-.details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-}
-
-.detail-item {
-  text-align: center;
-  cursor: pointer;
-}
-
-.detail-item img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-
-#popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#popup-content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  position: relative;
-  animation: slideIn 0.5s ease-in-out;
-}
-
-#popup-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #007BFF;
-  color: white;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.show {
-  display: block;
-  animation: fadeIn 1s ease-in-out;
-}
+  <div id="popup" class="hidden">
+    <div id="popup-content">
+      <span id="popup-close">&times;</span>
+      <div id="popup-text"></div>
+    </div>
+  </div>
+</body>
+</html>
