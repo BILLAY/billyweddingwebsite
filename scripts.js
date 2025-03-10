@@ -10,14 +10,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
-      showNextSection();
-    }
-  });
-
   // Show the first section
   sections[currentSectionIndex].classList.add('show');
+
+  document.querySelectorAll('.down-arrow').forEach(arrow => {
+    arrow.addEventListener('click', showNextSection);
+  });
+
+  // Envelope hover effect
+  const envelopeClosed = document.querySelector('.envelope .closed');
+  const envelopeOpen = document.querySelector('.envelope .open');
+
+  envelopeClosed.addEventListener('mouseover', () => {
+    envelopeOpen.classList.remove('hidden');
+  });
+
+  envelopeClosed.addEventListener('mouseout', () => {
+    envelopeOpen.classList.add('hidden');
+  });
+
+  envelopeClosed.addEventListener('click', showNextSection);
 
   // Popup functionality
   const popup = document.getElementById('popup');
@@ -25,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const popupClose = document.getElementById('popup-close');
   const popupText = document.getElementById('popup-text');
 
-  document.querySelectorAll('.details-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      const detail = button.getAttribute('data-detail');
+  document.querySelectorAll('.detail-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const detail = item.getAttribute('data-detail');
       showPopup(detail);
     });
   });
@@ -39,12 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function showPopup(detail) {
     // Add details for each section
     const details = {
-      stay: '<h3>Where to Stay</h3><p>Here are some great places to stay nearby...</p>',
-      area: '<h3>The Area</h3><p>Explore the beautiful surroundings...</p>',
-      schedule: '<h3>Schedule of Events</h3><p>Here is the schedule for our wedding day...</p>',
-      parking: '<h3>Parking</h3><p>Parking information and tips...</p>',
-      attire: '<h3>Attire & Dress Code</h3><p>Dress code details...</p>',
-      registry: '<h3>Registry</h3><p>Check out our wedding registry...</p>',
+      'story': '<h3>Our Story</h3><p>Here is our love story...</p>',
+      'area': '<h3>The Area</h3><p>Explore the beautiful surroundings...</p>',
+      'dress-code': '<h3>Dress Code</h3><p>Dress code details...</p>',
+      'stay': '<h3>Where to Stay</h3><p>Here are some great places to stay nearby...</p>',
+      'getting-here': '<h3>Getting Here</h3><p>How to get to our wedding venue...</p>',
     };
 
     popupText.innerHTML = details[detail];
