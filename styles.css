@@ -7,7 +7,7 @@ body {
   scroll-behavior: smooth;
 }
 
-section {
+.section {
   padding: 50px;
   text-align: center;
   min-height: 100vh;
@@ -17,11 +17,11 @@ section {
   align-items: center;
 }
 
-#cover, #envelope, #invitation, #details {
+.hidden {
   display: none;
 }
 
-#cover img, #envelope .closed, #envelope .open, #invitation img {
+.cover-image {
   max-width: 100%;
   height: auto;
 }
@@ -30,10 +30,6 @@ section {
   font-size: 2rem;
   animation: blink 1s infinite;
   cursor: pointer;
-}
-
-.hidden {
-  display: none;
 }
 
 .envelope {
