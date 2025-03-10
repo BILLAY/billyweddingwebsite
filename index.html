@@ -8,26 +8,48 @@
   <script defer src="scripts.js"></script>
 </head>
 <body>
-  <section id="welcome">
-    <h1>Welcome to Our Wedding</h1>
-    <p>Scroll down to see more</p>
+  <section id="cover">
+    <img src="cover%20image.jpg" alt="Cover Image">
+    <div class="down-arrow">⬇</div>
+  </section>
+
+  <section id="envelope">
+    <div class="envelope">
+      <img src="envelope-closed.jpg" alt="Closed Envelope" class="closed">
+      <img src="envelope-open.jpg" alt="Open Envelope" class="open hidden">
+    </div>
+    <div class="down-arrow">⬇</div>
   </section>
 
   <section id="invitation">
-    <h2>You're Invited!</h2>
-    <p>Join us on our special day!</p>
-    <p>Date: June 25, 2025</p>
+    <img src="invitation-image.jpg" alt="Invitation Image">
+    <div class="down-arrow">⬇</div>
   </section>
 
   <section id="details">
-    <h2>Details</h2>
     <button id="rsvp-btn">RSVP</button>
-    <button class="details-btn" data-detail="stay">Where to Stay</button>
-    <button class="details-btn" data-detail="area">The Area</button>
-    <button class="details-btn" data-detail="schedule">Schedule of Events</button>
-    <button class="details-btn" data-detail="parking">Parking</button>
-    <button class="details-btn" data-detail="attire">Attire & Dress Code</button>
-    <button class="details-btn" data-detail="registry">Registry</button>
+    <div class="details-grid">
+      <div class="detail-item" data-detail="story">
+        <img src="our-story.jpg" alt="Our Story">
+        <p>Our Story</p>
+      </div>
+      <div class="detail-item" data-detail="area">
+        <img src="the-area.jpg" alt="The Area">
+        <p>The Area</p>
+      </div>
+      <div class="detail-item" data-detail="dress-code">
+        <img src="dress-code.jpg" alt="Dress Code">
+        <p>Dress Code</p>
+      </div>
+      <div class="detail-item" data-detail="stay">
+        <img src="where-to-stay.jpg" alt="Where to Stay">
+        <p>Where to Stay</p>
+      </div>
+      <div class="detail-item" data-detail="getting-here">
+        <img src="getting-here.jpg" alt="Getting Here">
+        <p>Getting Here</p>
+      </div>
+    </div>
   </section>
 
   <div id="popup" class="hidden">
