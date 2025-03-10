@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('section');
+  const sections = document.querySelectorAll('.section');
   let currentSectionIndex = 0;
 
   function showNextSection() {
